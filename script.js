@@ -1,0 +1,2 @@
+let todoList = [];
+let inputText = 
