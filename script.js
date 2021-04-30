@@ -10,9 +10,20 @@ function getData() {
   // Then fill the container with value
   todoList.forEach((value, i) => {
     todoListContainer.innerHTML += `
-      <p id="${value + i}" onclick="removeData('${value}')">
-        ${value}
-      </p>
+      <div
+        id="${value + i}"
+        class="card w-100 my-2"
+      >
+        <div class="card-body d-flex justify-content-between py-2">
+            <p class="m-0">${i + 1}. ${value}</p>
+          <button
+            type="button"
+            class="btn-close"
+            aria-label="Close"
+            onclick="removeData('${value}')"
+          ></button>
+        </div>
+      </div>
     `;
   });
 }
@@ -47,3 +58,5 @@ function removeData(listValue) {
 document.getElementById("save_button").addEventListener("click", () => {
   createData();
 });
+
+let baseContainer = document.getElementById("base_container");
