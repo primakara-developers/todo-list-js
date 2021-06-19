@@ -1,3 +1,7 @@
+if (localStorage.getItem("token")) {
+  location.href = "../index.html";
+}
+
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 
@@ -34,6 +38,6 @@ const loginFunction = async () => {
   }
 };
 
-document.getElementById("loginBtn").addEventListener("click", () => {
-  loginFunction();
-});
+// document.getElementById("loginBtn").addEventListener("click", () => {
+//   loginFunction();
+// });

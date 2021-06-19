@@ -1,5 +1,12 @@
+if (localStorage.getItem("token")) {
+  location.href = "../index.html";
+}
+
 const registerEmail = document.getElementById("register_email");
 const registerPassword = document.getElementById("register_password");
+const confirmRegisterPassword = document.getElementById(
+  "confirm_register_password"
+);
 
 const loginFunction = async () => {
   Swal.fire({
@@ -35,5 +42,9 @@ const loginFunction = async () => {
 };
 
 document.getElementById("registerBtn").addEventListener("click", () => {
-  loginFunction();
+  if (registerPassword.value === confirmRegisterPassword.value) {
+    loginFunction();
+  } else {
+    alert("Wrong confirm password");
+  }
 });

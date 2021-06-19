@@ -97,6 +97,13 @@ async function removeData(id) {
   getData();
 }
 
+if (localStorage.getItem("token")) {
+  showLoading();
+  getData();
+} else {
+  location.href = "../pages/login.html";
+}
+
 // This event for save button and trigger save function
 document.getElementById("save_button").addEventListener("click", () => {
   createData();
@@ -107,6 +114,3 @@ document.getElementById("logout_button").addEventListener("click", () => {
   localStorage.clear();
   location.href = "./pages/login.html";
 });
-
-showLoading();
-getData();
