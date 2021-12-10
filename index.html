@@ -38,7 +38,20 @@
 
           <div class="p-0" id="base_container">
             <p class="mt-4 mx-2 mb-0 p-0"><small>Upcoming</small></p>
-            <div id="todo_list_container" class="my-1 g-0"></div>
+            <div id="todo_list_container" class="my-1 g-0">
+              <!-- Todo List Item -->
+              <div id="${value.id}" class="card w-100 my-2">
+                <div class="card-body d-flex justify-content-between py-2">
+                  <p class="m-0">${i + 1}. ${value.title}</p>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    aria-label="Close"
+                    onclick="removeData('${value.id}')"
+                  ></button>
+                </div>
+              </div>
+            </div>
 
             <div class="col-12 py-4">
               <button id="logout_button" class="btn btn-danger w-100">
