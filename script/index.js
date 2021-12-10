@@ -3,13 +3,6 @@ let todoList = [];
 let inputTodoList = document.getElementById("input_field");
 let todoListContainer = document.getElementById("todo_list_container");
 
-function showLoading() {
-  Swal.fire({
-    title: "loading...",
-    showConfirmButton: false,
-  });
-}
-
 async function getData() {
   // Get data from database
   const response = await fetch(
@@ -97,11 +90,12 @@ async function removeData(id) {
   getData();
 }
 
+// Function for check if the user is logged in before
 if (localStorage.getItem("token")) {
   showLoading();
   getData();
 } else {
-  location.href = "../pages/login.html";
+  location.href = "./login.html";
 }
 
 // This event for save button and trigger save function
@@ -112,5 +106,5 @@ document.getElementById("save_button").addEventListener("click", () => {
 // This event for logout button and clear all data in localStorage
 document.getElementById("logout_button").addEventListener("click", () => {
   localStorage.clear();
-  location.href = "./pages/login.html";
+  location.href = "./login.html";
 });

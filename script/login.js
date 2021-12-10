@@ -1,15 +1,12 @@
 if (localStorage.getItem("token")) {
-  location.href = "../index.html";
+  location.href = "./index.html";
 }
 
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 
 const loginFunction = async () => {
-  Swal.fire({
-    title: "loading...",
-    showConfirmButton: false,
-  });
+  showLoading();
 
   // API for send login data
   const response = await fetch(
@@ -32,7 +29,7 @@ const loginFunction = async () => {
 
   if (json.token) {
     localStorage.setItem("token", json.token);
-    location.href = "../index.html";
+    location.href = "./index.html";
   } else {
     alert("Something wrong");
   }

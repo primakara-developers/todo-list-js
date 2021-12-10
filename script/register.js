@@ -1,5 +1,5 @@
 if (localStorage.getItem("token")) {
-  location.href = "../index.html";
+  location.href = "./index.html";
 }
 
 const registerEmail = document.getElementById("register_email");
@@ -9,10 +9,7 @@ const confirmRegisterPassword = document.getElementById(
 );
 
 const loginFunction = async () => {
-  Swal.fire({
-    title: "loading...",
-    showConfirmButton: false,
-  });
+  showLoading();
 
   // API for send register data
   const response = await fetch(
