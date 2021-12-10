@@ -8,7 +8,7 @@ const confirmRegisterPassword = document.getElementById(
   "confirm_register_password"
 );
 
-const loginFunction = async () => {
+const registerFunction = async () => {
   showLoading();
 
   // API for send register data
@@ -39,9 +39,12 @@ const loginFunction = async () => {
 };
 
 document.getElementById("registerBtn").addEventListener("click", () => {
-  if (registerPassword.value === confirmRegisterPassword.value) {
-    loginFunction();
+  if (
+    registerEmail.value &&
+    registerPassword.value === confirmRegisterPassword.value
+  ) {
+    registerFunction();
   } else {
-    alert("Wrong confirm password");
+    alert("Wrong data or Password not match");
   }
 });

@@ -48,21 +48,18 @@ async function createData() {
   showLoading();
 
   // Asign the todo list value to API
-  const response = await fetch(
-    "https://shrouded-refuge-36665.herokuapp.com/api/todos",
-    {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: localStorage.getItem("token"),
-      },
-      body: JSON.stringify({
-        title: inputTodoList.value,
-        description: "",
-      }),
-    }
-  );
+  await fetch("https://shrouded-refuge-36665.herokuapp.com/api/todos", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: localStorage.getItem("token"),
+    },
+    body: JSON.stringify({
+      title: inputTodoList.value,
+      description: "",
+    }),
+  });
 
   // After that, clear the input field
   // and update the data in container
@@ -74,17 +71,14 @@ async function removeData(id) {
   showLoading();
 
   // Call API for delete data
-  const response = await fetch(
-    `https://shrouded-refuge-36665.herokuapp.com/api/todos/${id}`,
-    {
-      method: "DELETE",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        Authorization: localStorage.getItem("token"),
-      },
-    }
-  );
+  await fetch(`https://shrouded-refuge-36665.herokuapp.com/api/todos/${id}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: localStorage.getItem("token"),
+    },
+  });
 
   // After that update the data in container
   getData();
