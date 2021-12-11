@@ -6,6 +6,8 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 
 const loginFunction = async () => {
+  if (email.value === "" || password.value === "") return;
+
   showLoading();
 
   // API for send login data
@@ -31,7 +33,7 @@ const loginFunction = async () => {
     localStorage.setItem("token", json.token);
     location.href = "./index.html";
   } else {
-    alert("Something wrong");
+    swalAlert("error", json.message, "Oops...");
   }
 };
 

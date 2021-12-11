@@ -30,21 +30,25 @@ const registerFunction = async () => {
 
   Swal.close();
 
+  console.log(json);
+
   if (json.email) {
     alert("Succesfully registered data");
     location.href = "./login.html";
   } else {
-    alert("Something wrong");
+    swalAlert("error", json.message, "Oops...");
   }
 };
 
 document.getElementById("registerBtn").addEventListener("click", () => {
   if (
     registerEmail.value &&
+    registerPassword.value &&
+    confirmRegisterPassword.value &&
     registerPassword.value === confirmRegisterPassword.value
   ) {
     registerFunction();
   } else {
-    alert("Wrong data or Password not match");
+    swalAlert("error", "Wrong data or Password not match", "Oops...");
   }
 });
